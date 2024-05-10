@@ -44,5 +44,6 @@ dependencies {
     /// swagger
     implementation("io.ktor:ktor-server-swagger:$ktorVersion")
     implementation("io.swagger.codegen.v3:swagger-codegen-generators:$swaggerCodegenVersion")
+    implementation("io.ktor:ktor-server-cors:$ktorVersion")
 
 }
