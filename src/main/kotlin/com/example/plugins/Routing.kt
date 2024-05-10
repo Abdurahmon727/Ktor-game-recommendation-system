@@ -3,6 +3,7 @@ package com.example.plugins
 import com.example.database.dao
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
+import io.ktor.server.plugins.swagger.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.Serializable
@@ -21,6 +22,10 @@ fun Application.configureRouting() {
 
         get("/games") {
             call.respond(mapOf("games" to dao.allGames()))
+        }
+
+        swaggerUI(path = "swagger", swaggerFile = "openapi/documentation.yaml") {
+            version = "4.15.5"
         }
 
         // Static plugin. Try to access `/static/index.html`
